@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crudify</title>
+
+    <!-- Fav Icon -->
+    <link rel="icon" href="images/cubes-stacked-solid.png" />
+
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="css/all.min.css" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <!-- Empty Field Dialog -->
+    <div id="modalOverlay" class="modal-overlay d-none"></div>
+    <div class="container">
+      <div class="row">
+        <div
+          class="modal-info position-absolute top-50 start-50 translate-middle rounded-2 p-5 rounded-2 text-center col-10 col-md-8 col-lg-6 col-xl-4 d-none"
+          id="modalInfo"
+        >
+          <h2><i class="fa-regular fa-circle-question text-primary"></i> Oops...</h2>
+          <p class="fs-6">
+            Please fill in all fields before adding a
+            <span class="fw-bold text-primary">product.</span>
+          </p>
+          <button
+            id="closeInfo"
+            class="btn btn-primary text-white"
+            onclick="closeInfo();"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Header -->
+    <header class="bg-primary text-white py-3 mb-4">
+      <div class="container d-flex align-items-center justify-content-center">
+        <span class="fs-2 me-3"><i class="fa-solid fa-cubes-stacked"></i></span>
+        <h1 class="m-0">Crudify</h1>
+      </div>
+    </header>
+
+    <!-- Product Details -->
+    <div class="container mt-4">
+      <div class="row shadow-sm p-4">
+        <h2 class="title">Product Details</h2>
+        <div id="productForm" class="row g-3">
+          <div class="form-floating pb-3 col-md-6">
+            <input
+              type="text"
+              class="form-control shadow-none border-0 rounded-0 border-bottom border-dark shadow-lg"
+              id="productName"
+              placeholder="Product Name"
+              autocomplete="off"
+            />
+            <label for="productName" class="form-label">Product Name</label>
+          </div>
+
+          <div class="form-floating pb-3 col-md-6">
+            <input
+              type="number"
+              class="form-control shadow-none border-0 rounded-0 border-bottom border-dark"
+              id="productPrice"
+              placeholder="Product Price"
+              autocomplete="off"
+            />
+            <label for="productPrice" class="form-label">Product Price</label>
+          </div>
+
+          <div class="form-floating pb-3 col-12">
+            <input
+              list="categories"
+              class="form-control shadow-none border-0 rounded-0 border-bottom border-dark"
+              id="productCategory"
+              placeholder="Product Category"
+              autocomplete="off"
+            />
+            <datalist id="categories">
+              <option value="Mobile"></option>
+              <option value="TV"></option>
+              <option value="Laptop"></option>
+              <option value="AC"></option>
+              <option value="Electronics"></option>
+            </datalist>
+
+            <label for="productCategory" class="form-label"
+              >Product Category</label
+            >
+          </div>
+
+          <div class="pb-3 col-12">
+            <label for="productImage" class="form-label">Product Image</label>
+            <input
+              type="file"
+              class="form-control shadow-none border-0 rounded-0 border-bottom border-dark"
+              id="productImage"
+              placeholder="Product Image"
+            />
+          </div>
+
+          <div class="form-floating pb-3 col-12">
+            <textarea
+              id="productDesc"
+              class="form-control shadow-none border-0 rounded-0 border-bottom border-dark"
+              rows="3"
+              placeholder="Product Description"
+            ></textarea>
+            <label for="productDesc" class="form-label"
+              >Product Description</label
+            >
+          </div>
+
+          <div>
+            <button
+              class="btn btn-primary py-2"
+              id="createBtn"
+              onclick="createProduct();"
+            >
+              Create Product
+            </button>
+            <button
+              class="btn btn-warning d-none py-2"
+              id="updateBtn"
+              onclick="updateProduct(updateIndex);"
+            >
+              Update Product
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="container mt-5">
+      <div class="row mb-4 px-4">
+        <div class="col-12 p-0">
+          <div class="input-group w-100">
+            <div class="form-floating flex-grow-1">
+              <input
+                type="text"
+                class="form-control shadow-none border-0 rounded-0 border-bottom border-dark"
+                id="searchInput"
+                placeholder="Search for products..."
+                oninput="searchProduct();"
+                autocomplete="off"
+              />
+              <label for="searchInput" class="form-label"
+                >Search for products...</label
+              >
+            </div>
+            <button
+              class="btn btn-outline-primary"
+              type="button"
+              id="searchButton"
+              onclick="searchProduct();"
+            >
+              <i class="fas fa-search"></i> Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product List -->
+    <div class="container mt-5">
+      <div class="row shadow-sm p-4">
+        <h2 class="title pb-4">Product List</h2>
+        <div id="productData" class="row g-4"></div>
+      </div>
+    </div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>

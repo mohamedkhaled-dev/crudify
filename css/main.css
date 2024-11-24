@@ -1,0 +1,50 @@
+textarea {
+  resize: none;
+}
+
+img {
+  height: 240px;
+  display: block;
+  object-fit: contain;
+}
+
+p {
+  font-size: 0.875rem;
+  word-spacing: 0.0625rem;
+}
+
+.title {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 2.25rem;
+  letter-spacing: 0.0625rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease-in-out;
+}
+
+.input-group > .form-control:focus,
+.input-group > .form-floating:focus-within,
+.input-group > .form-select:focus {
+  z-index: auto;
+}
+
+.modal-info {
+  background-color: var(--tertiary-color);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(0.3125rem);
+  z-index: 999;
+}
+
+.modal-info {
+  z-index: 1000;
+  background-color: #eee;
+}
